@@ -7,13 +7,6 @@ plugins {
 
 }
 
-sonar {
-	properties {
-		property "sonar.projectKey", "adamskipiotr_sandbox"
-		property "sonar.organization", "adamskipiotr"
-		property "sonar.host", "https://sonarcloud.io"
-	}
-}
 
 group = 'com.pada'
 version = '0.0.1-SNAPSHOT'
@@ -97,4 +90,13 @@ compileJava {
 
 	// if you need to configure mapstruct component model
 	options.compilerArgs << "-Amapstruct.defaultComponentModel=spring"
+}
+
+
+sonar {
+	properties {
+		property "sonar.projectKey", "adamskipiotr_sandbox"
+		property "sonar.organization", "adamskipiotr"
+		property "sonar.host.url", "https://sonarcloud.io"
+	}
 }
