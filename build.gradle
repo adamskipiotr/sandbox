@@ -7,6 +7,13 @@ plugins {
 
 }
 
+sonar {
+	properties {
+		property "sonar.projectKey", "adamskipiotr_sandbox"
+		property "sonar.organization", "adamskipiotr"
+		property "sonar.host", "https://sonarcloud.io"
+	}
+}
 
 group = 'com.pada'
 version = '0.0.1-SNAPSHOT'
