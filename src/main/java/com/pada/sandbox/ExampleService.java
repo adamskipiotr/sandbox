@@ -21,4 +21,8 @@ public class ExampleService {
     public List<ExampleClass> getAllExamples() {
        return exampleRepository.findAll();
     }
+
+    public ExampleClass getExampleByName(String name){
+        return exampleRepository.findByName(name);
+    }
 }

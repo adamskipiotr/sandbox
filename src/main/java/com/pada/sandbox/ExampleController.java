@@ -15,7 +15,7 @@ public class ExampleController {
     @Autowired
     private ExampleService exampleService;
 
-    @GetMapping
+    @GetMapping("/all")
     public List<ExampleClass> getAllExamples(){
         return exampleService.getAllExamples();
     }
@@ -26,5 +26,10 @@ public class ExampleController {
       logger.info("Add new Example");
       ExampleClass exampleClass1 = exampleService.saveExample(exampleClass);
       return exampleClass1;
+    }
+
+    @GetMapping("/{name}")
+    public ExampleClass getExampleByName(@PathVariable String name) {
+        return exampleService.getExampleByName(name);
     }
 }
