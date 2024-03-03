@@ -1,2 +1,19 @@
-package com.pada.sandbox;public class ExampleClass {
+package com.pada.sandbox;
+
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
+@Getter
+@Setter
+public class ExampleClass {
+
+    @Id
+    private String id;
+    private String name;
+    private String secondName;
+    private Integer age;
+
 }
