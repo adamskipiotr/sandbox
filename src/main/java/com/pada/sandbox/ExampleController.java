@@ -3,18 +3,25 @@ package com.pada.sandbox;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-public class ExmpleController {
+@RequestMapping("/examples")
+public class ExampleController {
 
-    private static final Logger logger = LoggerFactory.getLogger(ExmpleController.class);
+    private static final Logger logger = LoggerFactory.getLogger(ExampleController.class);
     @Autowired
     private ExampleService exampleService;
 
-    @PostMapping("/add-example")
+    @GetMapping
+    public List<ExampleClass> getAllExamples(){
+        return exampleService.getAllExamples();
+    }
+
+
+    @PostMapping
     public ExampleClass addNewExample(@RequestBody ExampleClass exampleClass){
       logger.info("Add new Example");
       ExampleClass exampleClass1 = exampleService.saveExample(exampleClass);
