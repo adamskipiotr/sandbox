@@ -10,7 +10,6 @@ plugins {
 
 group = 'com.pada'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '17'
 
 configurations {
 	compileOnly {
@@ -24,10 +23,7 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web:3.1.0'
-	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc:3.0.4'
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa:3.0.4'
 	implementation 'org.springframework.boot:spring-boot-starter-graphql:3.0.4'
-	implementation 'org.springframework.boot:spring-boot-starter-jdbc:3.0.4'
 	// https://mvnrepository.com/artifact/org.springframework/spring-websocket
 	implementation group: 'org.springframework', name: 'spring-websocket', version: '6.0.10'
 // https://mvnrepository.com/artifact/org.springframework/spring-messaging
@@ -46,8 +42,6 @@ dependencies {
 	implementation group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2'
 	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-validation
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '3.1.0'
-	// https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa
-	implementation group: 'org.springframework.data', name: 'spring-data-jpa', version: '3.1.0'
 	// https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator
 	implementation group: 'org.hibernate.validator', name: 'hibernate-validator', version: '8.0.0.Final'
 	implementation 'org.projectlombok:lombok:1.18.26'
@@ -79,6 +73,10 @@ dependencies {
 	runtimeOnly group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.19'
 	// https://mvnrepository.com/artifact/org.testcontainers/postgresql
 	testImplementation group: 'org.testcontainers', name: 'postgresql', version: '1.18.3'
+
+	// https://mvnrepository.com/artifact/org.springframework.kafka/spring-kafka
+	implementation 'org.springframework.kafka:spring-kafka:3.3.1'
+
 }
 
 tasks.named('test') {
