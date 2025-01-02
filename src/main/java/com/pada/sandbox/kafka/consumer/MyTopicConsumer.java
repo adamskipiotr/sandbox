@@ -1,5 +1,6 @@
 package com.pada.sandbox.kafka.consumer;
 
+import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
@@ -12,10 +13,10 @@ public class MyTopicConsumer {
     private final List<String> messages = new ArrayList<>();
 
     @KafkaListener(topics = "myTopic", groupId = "kafka-sandbox")
-    public void listen(String message) {
-        System.out.println("Message:" + message);
+    public void listen(ConsumerRecord<?, String> record) {
+        System.out.println("Topic:" + record.topic() + ", Key:" + record.key() + ", Partition:" + record.partition() + ", Value:" + record.value());
         synchronized (messages) {
-            messages.add(message);
+            messages.add(record.value());
         }
     }
 
