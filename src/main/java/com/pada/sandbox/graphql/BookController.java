@@ -32,4 +32,9 @@ public class BookController {
        return Book.addBook(name,chapters,pageCount);
     }
 
+    @MutationMapping
+    public Book createBookFromInput(@Argument BookInput input){
+        return Book.addBook(input);
+    }
+
 }

@@ -5,6 +5,7 @@ type Query {
 
 type Mutation {
     createBook(name:String, chapters: [String], pageCount: Int): Book
+    createBookFromInput(input: BookInput): Book
 }
 
 type Book {
@@ -19,4 +20,10 @@ type Author {
     id: ID
     firstName: String
     lastName: String
+}
+
+input BookInput {
+    name: String
+    chapters: [String]
+    pageCount: Int
 }
