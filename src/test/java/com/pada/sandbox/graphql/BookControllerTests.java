@@ -1,17 +1,19 @@
 package com.pada.sandbox.graphql;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.graphql.GraphQlTest;
 import org.springframework.boot.test.autoconfigure.graphql.tester.AutoConfigureGraphQlTester;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.graphql.test.tester.GraphQlTester;
 
+import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
 @AutoConfigureGraphQlTester
-public class BookControllerTest {
+public class BookControllerTests {
 
     @Autowired
     private GraphQlTester tester;
@@ -28,6 +30,8 @@ public class BookControllerTest {
                   }
                 }
                 """;
+        Book expected = new Book("1","Test", List.of("1","2"), 245, null);
+
         Book book = tester.document(query)
                 .execute()
                 .path("data.createBook")
@@ -35,5 +39,9 @@ public class BookControllerTest {
                 .get();
 
         assertNotNull(book);
+        assertThat(book)
+                .usingRecursiveComparison()
+                .ignoringFields("id")
+                .isEqualTo(expected);
     }
 }

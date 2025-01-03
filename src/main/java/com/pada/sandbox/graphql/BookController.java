@@ -28,12 +28,18 @@ public class BookController {
     }
 
     @MutationMapping
-    public Book createBook(@Argument String name, @Argument List<String> chapters, @Argument Integer pageCount){
-       return Book.addBook(name,chapters,pageCount);
+    public Book createBook(@Argument String name, @Argument List<String> chapters, @Argument Integer pageCount) {
+        return Book.addBook(name, chapters, pageCount);
     }
 
     @MutationMapping
-    public Book createBookFromInput(@Argument BookInput input){
+    public Book createBasicBook(@Argument String name, @Argument List<String> chapters) {
+        return Book.addBook(name, chapters, 100);
+    }
+
+
+    @MutationMapping
+    public Book createBookFromInput(@Argument BookInput input) {
         return Book.addBook(input);
     }
 
