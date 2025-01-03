@@ -1,5 +1,10 @@
 type Query {
     bookById(id: ID): Book
+    author(id : ID): Author
+}
+
+type Mutation {
+    createBook(name:String, chapters: [String], pageCount: Int): Book
 }
 
 type Book {
