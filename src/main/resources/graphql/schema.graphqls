@@ -1,5 +1,6 @@
 type Query {
     bookById(id: ID): Book
+    bookByPageCount(minPageCount: Int = 200): Book  # set default value of minPageCount argument
     author(id : ID): Author
 }
 
