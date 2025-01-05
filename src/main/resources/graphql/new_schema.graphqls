@@ -1,0 +1,4 @@
+# extend keyword required if we have Mutation defined elsewhere and just want to add new one
+extend type Mutation {
+    createBasicBook(name:String, chapters: [String]): Book
+}
