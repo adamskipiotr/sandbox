@@ -1,4 +1,4 @@
-package com.pada.sandbox.kafka.controller;
+package com.pada.sandbox.kafka.producer;
 
 import org.apache.kafka.clients.producer.Partitioner;
 import org.apache.kafka.common.Cluster;
