@@ -1,10 +1,12 @@
-package com.pada.sandbox.kafka.configuration;
+package com.pada.sandbox.kafka.withspring.configuration;
 
 import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScans;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.config.TopicBuilder;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
@@ -16,6 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
+@ComponentScan(basePackages = "com.pada.sandbox.kafka.withspring")
 public class KafkaTopicConfiguration {
 
     private static final String KAFKA_BROKER = "localhost:9092";
