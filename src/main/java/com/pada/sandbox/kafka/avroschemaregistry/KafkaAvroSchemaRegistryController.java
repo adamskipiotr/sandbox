@@ -26,7 +26,7 @@ public class KafkaAvroSchemaRegistryController {
 
     @GetMapping
     public void produce() {
-        AvroSchemaRegistryMessage avroSchemaRegistryMessage = new AvroSchemaRegistryMessage(1, "Avro Message", 100);
+        AvroSchemaRegistryMessage avroSchemaRegistryMessage = new AvroSchemaRegistryMessage(1, "Avro Schema Registry Message", 100);
         final var producerRecord = new ProducerRecord<>("avro-schema-registry-message", "key", avroSchemaRegistryMessage);
         try {
             final var sendResult = kafkaTemplate.send(producerRecord);
