@@ -1,6 +1,7 @@
 package com.pada.sandbox.kafka.withavro;
 
 import com.pada.sandbox.withavro.AvroMessage;
+import com.pada.sandbox.withavro.AvroSecondMessage;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -15,8 +16,14 @@ public class KafkaAvroController {
     }
 
     @GetMapping
-    public void produce() {
+    public void produceAvroMessage() {
         AvroMessage avroMessage = new AvroMessage(1, "Avro Message", 100);
         kafkaAvroProducer.sendAvroMessage("avro-message", avroMessage);
+    }
+
+    @GetMapping
+    public void produceAvroSecondMessage() {
+        AvroSecondMessage avroSecondMessage = new AvroSecondMessage(1, "Avro Second Message", 100);
+        kafkaAvroProducer.sendAvroSecondMessage("avro-second-message", avroSecondMessage);
     }
 }
