@@ -1,0 +1,19 @@
+{
+  "namespace": "com.pada.sandbox.withavro",
+  "type": "record",
+  "name": "AvroMessage",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int"
+    },
+    {
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "age",
+      "type": "int"
+    }
+  ]
+}
