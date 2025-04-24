@@ -22,7 +22,7 @@ dependencies {
 	implementation "io.grpc:grpc-protobuf:$grpcVersion"
 	implementation "io.grpc:grpc-stub:$grpcVersion"
 	compileOnly "org.apache.tomcat:annotations-api:6.0.53"
-
+    implementation("net.devh:grpc-server-spring-boot-starter:3.1.0.RELEASE")
 	testImplementation 'junit:junit:4.13.2'
 }
 
