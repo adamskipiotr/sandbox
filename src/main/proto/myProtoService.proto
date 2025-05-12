@@ -2,9 +2,14 @@ syntax = "proto3";
 option java_multiple_files = true; // required so java code is generated to separate files instead of single one
 package pada.testowe;
 
+// RPC Service
 service GreetingService {
   rpc sayHello (ParkRequest) returns (ParkResponse);
+  rpc StreamUsers (Empty) returns (stream ParkResponseManyTimes);          // Streamowanie od serwera do klienta
+  rpc UploadUsers (stream ParkRequest) returns (ParkResponse);       // Streamowanie od klienta do serwera
+  rpc Chat (stream ParkRequest) returns (stream ParkResponseManyTimes);           // Dwukierunkowe streamowanie
 }
+
 
 message Vehicle {
   string vehicle_number = 1;
@@ -23,3 +28,15 @@ message ParkResponseManyTimes {
   string message = 1;
   int64 count = 2;
 }
+
+message ParkResponseComplexMessage {
+  int32 id = 1;
+  string name = 2;
+  repeated string nicknames = 3;
+  oneof contact {
+    string email = 4;
+    string phone = 5;
+  }
+}
+
+message Empty {}
