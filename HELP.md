@@ -8,3 +8,7 @@ docker run --name cassandra -p 9042:9042 -e CASSANDRA_CLUSTER_NAME=TestCluster -
 
 Document:
 docker run -d --name mongo -p 27017:27017 -e MONGO_INITDB_DATABASE=demo mongo:latest
+
+Key-value:
+docker run -d --name redis -p 6379:6379 redis
+ 
